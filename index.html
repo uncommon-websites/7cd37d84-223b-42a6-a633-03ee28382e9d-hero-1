@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RJ Agrimensura - Agrimensura y Catastro en La Rioja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Typography Utilities */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        .text-pretty {
+            text-wrap: pretty;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animation Classes */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Delays */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-800 { animation-delay: 800ms; }
+
+        /* Custom Grid Lines */
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+        
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        /* Input Autofill Fix */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #1a1a1a inset !important;
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Background Image with Overlay -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 z-10"></div>
+        <!-- Using a dark architectural placeholder to mimic the grand hall -->
+        <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/7cd37d84-223b-42a6-a633-03ee28382e9d/hero-1-img-0-1771516565807.png" alt="Background" class="w-full h-full object-cover animate-scale-in origin-center opacity-60">
+    </div>
+
+    <!-- Grid Structure Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none max-w-[1600px] mx-auto border-l border-r border-white/5">
+        <!-- Horizontal Grid Lines -->
+        <div class="grid-line-h top-24"></div>
+        <div class="grid-line-h bottom-24"></div>
+        
+        <!-- Left Sidebar Indicator -->
+        <div class="absolute left-0 top-32 w-12 h-full border-r border-white/5 hidden lg:flex flex-col items-center pt-4">
+            <span class="text-white/30 text-xs font-mono">1</span>
+            <div class="w-0 h-0 border-l-[3px] border-l-transparent border-t-[4px] border-t-emerald-400 border-r-[3px] border-r-transparent mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="relative z-20 w-full max-w-[1600px] mx-auto px-6 py-8 flex justify-between items-center animate-fade-in delay-0">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+            <div class="w-6 h-6 grid grid-cols-3 gap-0.5">
+                <div class="bg-white rounded-full w-full h-full"></div><div class="bg-white/70 rounded-full w-full h-full"></div><div class="bg-white/40 rounded-full w-full h-full"></div>
+                <div class="bg-white rounded-full w-full h-full"></div><div class="bg-white/70 rounded-full w-full h-full"></div><div class="bg-white/40 rounded-full w-full h-full"></div>
+                <div class="bg-white rounded-full w-full h-full"></div><div class="bg-white/70 rounded-full w-full h-full"></div><div class="bg-white/40 rounded-full w-full h-full"></div>
+            </div>
+            <span class="text-xl font-serif tracking-wide text-white">RJ Agrimensura</span>
+        </div>
+
+        <!-- Center Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-300 font-medium">
+            <a href="#" class="hover:text-white transition-colors">Servicios</a>
+            <a href="#" class="hover:text-white transition-colors">Chilecito</a>
+            <a href="#" class="hover:text-white transition-colors">La Rioja</a>
+            <a href="#" class="hover:text-white transition-colors">Contacto</a>
+        </div>
+
+        <!-- Right Link -->
+        <div class="hidden sm:block">
+            <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors font-medium">Consulta Gratuita</a>
+        </div>
+    </nav>
+
+    <!-- Main Hero Content -->
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-4 w-full max-w-5xl mx-auto text-center mt-[-40px]">
+        
+        <!-- Announcement Tag -->
+        <div class="animate-fade-in-up delay-100 mb-6">
+            <p class="text-[10px] md:text-xs tracking-[0.2em] uppercase text-gray-300 font-medium">
+                Agrimensura de Precisión y Regularización de Títulos
+            </p>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="animate-fade-in-up delay-200 text-balance font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-white mb-10 tracking-tight">
+            Claridad en sus Límites, Seguridad en su Tierra
+        </h1>
+
+        <!-- Input Form -->
+        <div class="animate-fade-in-up delay-300 w-full max-w-[480px] mx-auto mb-3">
+            <div class="flex flex-col sm:flex-row gap-0 border border-white/20 bg-black/30 backdrop-blur-sm p-1">
+                <input type="email" placeholder="Correo Electrónico" class="flex-grow bg-transparent border-none text-white px-4 py-3 placeholder-gray-400 focus:outline-none focus:ring-0 text-sm h-12">
+                <button class="bg-white text-black px-6 py-2 text-sm font-medium hover:bg-gray-100 transition-colors h-12 sm:w-auto w-full">
+                    Solicitar Consulta
+                </button>
+            </div>
+        </div>
+
+        <!-- Helper Text -->
+        <div class="animate-fade-in-up delay-400 mb-10">
+            <p class="text-[10px] text-gray-400">
+                para una respuesta inmediata, escriba a <span class="text-gray-300">rafael@rj-agrimensura.com</span>
+            </p>
+        </div>
+
+        <!-- Description -->
+        <div class="animate-fade-in-up delay-500 max-w-2xl mx-auto">
+            <p class="text-pretty text-lg md:text-2xl text-white/90 leading-relaxed font-light">
+                Especialistas en determinación de linderos, mensuras y documentación catastral mediante tecnología de drones en La Rioja.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Bottom Section -->
+    <footer class="relative z-10 w-full max-w-[1600px] mx-auto mt-auto">
+        
+        <!-- Bottom Tagline -->
+        <div class="text-center mb-8 animate-fade-in delay-600">
+            <p class="text-xs text-gray-400 font-light">
+                Servicios Profesionales Autorizados en Toda la Provincia de La Rioja
+            </p>
+        </div>
+
+        <!-- Footer Grid -->
+        <div class="border-t border-white/10 py-8 px-6 animate-fade-in delay-700">
+            <div class="flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-4 text-[10px] tracking-[0.15em] uppercase text-gray-500 font-medium">
+                <span class="hover:text-gray-300 transition-colors cursor-default">Mensuras Particulares</span>
+                <span class="hidden md:block w-1 h-1 bg-gray-700 rounded-full"></span>
+                <span class="hover:text-gray-300 transition-colors cursor-default">Loteos y Subdivisiones</span>
+                <span class="hidden md:block w-1 h-1 bg-gray-700 rounded-full"></span>
+                <span class="hover:text-gray-300 transition-colors cursor-default">Relevamientos con Drones</span>
+                <span class="hidden md:block w-1 h-1 bg-gray-700 rounded-full"></span>
+                <span class="hover:text-gray-300 transition-colors cursor-default">Títulos de Propiedad</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
